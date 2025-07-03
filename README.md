@@ -1,4 +1,3 @@
-# AWS-Databases
 # **Amazon EMR (Elastic MapReduce)**
 ## **What is Big Data?**
 
