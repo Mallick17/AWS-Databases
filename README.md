@@ -10,7 +10,7 @@ Big Data is typically described by the **3 V's**:
 2. **Velocity** – Data is generated quickly (e.g., real-time sensor or log data)
 3. **Variety** – Data comes in many formats (structured, semi-structured, unstructured)
 
-> 📍 Examples:
+> Examples:
 >
 > * Web server logs from millions of users
 > * Social media feeds
@@ -19,7 +19,7 @@ Big Data is typically described by the **3 V's**:
 
 ---
 
-## 🚀 **What is Amazon EMR?**
+## **What is Amazon EMR?**
 
 **Amazon EMR (Elastic MapReduce)** is a **cloud-based big data platform** that lets you **process, transform, and analyze large volumes of data** using open-source tools like **Hadoop**, **Spark**, **Hive**, **Flink**, etc.
 
@@ -27,7 +27,7 @@ Big Data is typically described by the **3 V's**:
 
 ---
 
-## 🔎 **Key Features of Amazon EMR**
+## **Key Features of Amazon EMR**
 
 | Feature                     | Description                                                      |
 | --------------------------- | ---------------------------------------------------------------- |
@@ -43,7 +43,7 @@ Big Data is typically described by the **3 V's**:
 
 ---
 
-## 🧱 **EMR Architecture Components**
+## **EMR Architecture Components**
 
 | Component             | Purpose                                                 |
 | --------------------- | ------------------------------------------------------- |
@@ -56,7 +56,7 @@ Big Data is typically described by the **3 V's**:
 
 ---
 
-## 🛠️ **Common Frameworks Supported**
+## **Common Frameworks Supported**
 
 | Framework         | Description                       | Use Case                           |
 | ----------------- | --------------------------------- | ---------------------------------- |
@@ -69,7 +69,7 @@ Big Data is typically described by the **3 V's**:
 
 ---
 
-## 🧑‍💻 **Example Use Case: Clickstream Analysis**
+## **Example Use Case: Clickstream Analysis**
 
 1. Store raw web logs in **Amazon S3**
 2. Launch an **EMR cluster** with **Apache Spark**
@@ -79,7 +79,7 @@ Big Data is typically described by the **3 V's**:
 
 ---
 
-## 🔄 **How Amazon EMR Works (Simplified Flow)**
+## **How Amazon EMR Works (Simplified Flow)**
 
 ```plaintext
              +--------------------+
@@ -104,7 +104,7 @@ Big Data is typically described by the **3 V's**:
 
 ---
 
-## 🤖 **What is Amazon Glue (vs EMR)?**
+## **What is Amazon Glue (vs EMR)?**
 
 **AWS Glue** is a **fully managed ETL (Extract, Transform, Load)** service for **data preparation** and **metadata cataloging**. It is **not for big data processing in distributed clusters** like EMR, but it’s often used **before EMR or Redshift**.
 
@@ -118,7 +118,7 @@ Big Data is typically described by the **3 V's**:
 
 ---
 
-### 🧠 **What Are Glue Crawlers?**
+### **What Are Glue Crawlers?**
 
 A **Glue Crawler** scans data (in S3, RDS, etc.), infers its schema, and creates metadata tables in the **AWS Glue Data Catalog**.
 
@@ -128,7 +128,7 @@ A **Glue Crawler** scans data (in S3, RDS, etc.), infers its schema, and creates
 
 ---
 
-## 📊 **Comparison: EMR vs Redshift vs Glue vs RDS**
+## **Comparison: EMR vs Redshift vs Glue vs RDS**
 
 | Feature    | **Amazon EMR**                                  | **Amazon Redshift**           | **Amazon Glue**                 | **Amazon RDS**               |
 | ---------- | ----------------------------------------------- | ----------------------------- | ------------------------------- | ---------------------------- |
@@ -143,7 +143,7 @@ A **Glue Crawler** scans data (in S3, RDS, etc.), infers its schema, and creates
 
 ---
 
-## 📝 Final Decision Guide – When to Use What?
+## Final Decision Guide – When to Use What?
 
 | Scenario                                                  | Use                    |
 | --------------------------------------------------------- | ---------------------- |
