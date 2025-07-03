@@ -1,13 +1,13 @@
 # AWS-Databases
-# Amazon Redshift Overview (With Simple Explanations & Examples)
-## 🔹 What is Amazon Redshift?
+# Amazon Redshift
+## What is Amazon Redshift?
 **Amazon Redshift** is a **fully managed data warehouse** service provided by AWS. It helps you **store and analyze huge volumes of data** quickly and efficiently using SQL.
 
 > 💡 **Think of Redshift as a supercharged version of a database**, optimized specifically for **analytics** (not for frequent small transactions).
 
 ---
 
-## ✅ Key Concepts Explained
+## Key Concepts Explained
 
 ### 📌 1. **Built on PostgreSQL – But NOT for OLTP**
 
@@ -26,7 +26,7 @@
 > * Weekly/monthly reporting
 > * Analyzing customer behavior over time
 
-### 🔁 **Example**:
+### **Example**:
 
 * Don’t use Redshift for tracking every click on a website in real time.
 * Use it for running a query like:
@@ -71,7 +71,7 @@ Instead of storing data **row by row**, Redshift stores **column by column**.
 > * Analytics often read **only a few columns** at a time.
 > * Scanning columns is **faster and uses less memory**.
 
-> ✅ Example:
+> Example:
 > Query: `SELECT sales_amount FROM orders WHERE region = 'Asia';`
 > → Redshift will **only scan the `sales_amount` and `region` columns**, not the entire table.
 
@@ -81,7 +81,7 @@ Instead of storing data **row by row**, Redshift stores **column by column**.
 
 Redshift splits your query and data across **multiple nodes** and runs them **in parallel**.
 
-> ✅ Example:
+> Example:
 > If you run a query on a 1 TB table, Redshift can split it across 10 nodes, so each handles 100 GB in parallel — **much faster!**
 
 ---
@@ -98,7 +98,7 @@ Redshift splits your query and data across **multiple nodes** and runs them **in
 You pay **based on the number and type of nodes** you provision (if using provisioned Redshift).
 Or, with **Redshift Serverless**, you pay **only for the time your queries run**.
 
-> 💰 Example:
+> Example:
 >
 > * You provision 2 nodes for 1 month → Pay per hour per node
 > * Or run 2 queries a day on Redshift Serverless → Pay only for compute time used
@@ -139,7 +139,7 @@ Redshift easily integrates with:
 
 ---
 
-## 🧑‍💼 Real-Life Example
+## Real-Life Example
 
 ### 📊 Scenario: Sales Analytics for an E-commerce Website
 
@@ -151,7 +151,7 @@ Redshift easily integrates with:
 
 ---
 
-## 🧾 Summary Table
+## Summary Table
 
 | Feature             | Description                       | Example                          |
 | ------------------- | --------------------------------- | -------------------------------- |
@@ -164,7 +164,7 @@ Redshift easily integrates with:
 
 ---
 
-# **AWS Redshift Serverless – Overview & Workflow Documentation**
+# **AWS Redshift Serverless – Overview & Workflow**
 ## What is Amazon Redshift Serverless?
 
 **Amazon Redshift Serverless** is a fully managed data warehouse solution provided by AWS that:
@@ -178,10 +178,10 @@ Redshift easily integrates with:
 
 ## **Key Features**
 
-* 🔄 **Automatic provisioning & scaling**: You don’t need to manually allocate capacity. Redshift Serverless automatically adjusts compute power based on your workload.
-* 🧰 **No infrastructure management**: You focus on your queries and data, not hardware or tuning.
-* 💸 **Cost-effective**: You are charged only when queries run (based on compute seconds and data scanned).
-* 📊 **Use cases**: Reporting, dashboards, business intelligence (BI), real-time data analytics, and ad-hoc querying.
+* **Automatic provisioning & scaling**: You don’t need to manually allocate capacity. Redshift Serverless automatically adjusts compute power based on your workload.
+* **No infrastructure management**: You focus on your queries and data, not hardware or tuning.
+* **Cost-effective**: You are charged only when queries run (based on compute seconds and data scanned).
+* **Use cases**: Reporting, dashboards, business intelligence (BI), real-time data analytics, and ad-hoc querying.
 
 ---
 
@@ -222,7 +222,7 @@ Let’s break down the **Redshift Serverless workflow** step by step:
 
 ---
 
-## 🧑‍💻 **Example Use Case: Reporting Dashboard**
+## **Example Use Case: Reporting Dashboard**
 
 Imagine you want to build a weekly sales dashboard:
 
