@@ -9,3 +9,9 @@
 - Pay as you go based on the instances provisioned.
 - Has a SQL interface for performing the queries.
 - BI tools such as AWS Quicksight or Tableau integrate with it.
+
+## Redshift Serverless
+• Automatically provisions and scales data warehouse underlying capacity
+• Run analytics workloads without managing data warehouse infrastructure
+• Pay only for what you use (save costs)
+• Use cases: Reporting, dashboarding applications, real-time analytics…
