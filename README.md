@@ -253,3 +253,59 @@ Imagine you want to build a weekly sales dashboard:
 
 ---
 
+# Amazon Glue vs Amazon Redshift
+
+| Feature             | **Amazon Glue**                                                                                                               | **Amazon Redshift**                                                             |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| **Type**            | Serverless **Data Integration (ETL)** Service                                                                                 | **Data Warehouse** for Analytics                                                |
+| **Primary Purpose** | Move, clean, transform, and prepare data from various sources                                                                 | Store and run **analytical queries** on structured data                         |
+| **Use Case**        | ETL jobs (Extract, Transform, Load), data preparation, cataloging                                                             | Business Intelligence (BI), data reporting, complex SQL analysis                |
+| **How it works**    | Crawlers scan data and create metadata catalog → Glue Jobs process data using PySpark or Python → Store in S3, Redshift, etc. | Data is stored in columnar format → Users run SQL queries using Redshift engine |
+| **Data Storage**    | Does **not store** data permanently – processes data from S3, RDS, JDBC, etc.                                                 | Stores data **persistently** in warehouse tables                                |
+| **Query Language**  | Uses Spark with Python or Scala (can use SQL via Glue Studio)                                                                 | Standard **SQL** interface                                                      |
+| **Integration**     | Can load data into Redshift, S3, RDS, etc.                                                                                    | Can be queried using tools like QuickSight, Tableau                             |
+| **Performance**     | Good for batch ETL jobs (not real-time)                                                                                       | Optimized for **fast analytics on large data sets**                             |
+| **Serverless?**     | Yes (fully serverless)                                                                                                        | Redshift Serverless also available                                              |
+
+---
+
+## 📌 Example Scenario
+
+### 🔹 When to Use **Amazon Glue**:
+
+You have raw JSON/CSV files in S3 and want to:
+
+* Clean the data
+* Filter out bad records
+* Convert formats (e.g., CSV → Parquet)
+* Then load into Redshift for querying
+
+**Glue handles the ETL part**.
+
+---
+
+### 🔹 When to Use **Amazon Redshift**:
+
+You already have structured sales or customer data in Redshift and want to:
+
+* Run SQL reports
+* Join multiple tables
+* Feed dashboards like QuickSight/Tableau
+
+**Redshift handles the analytics part**.
+
+---
+
+## 🔗 How They Work Together
+
+Often, **Glue is used to prepare and load data into Redshift**. Then Redshift is used to **query and analyze** that data.
+
+---
+
+## Summary
+
+| Amazon Glue     | → | Data Transformation & Movement (ETL) |
+| --------------- | - | ------------------------------------ |
+| Amazon Redshift | → | Data Storage & Analytical Querying   |
+
+---
