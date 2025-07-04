@@ -190,7 +190,22 @@ Amazon QuickSight has **two main pricing models**:
 
 ---
 
-## Real-World Example
+## Real-World Analogy
+
+> Imagine you own a chain of stores. Every night, sales data from all stores is saved in S3.
+> You want to:
+>
+> * Track top-selling products
+> * See weekly revenue trends
+> * Compare sales by region
+
+QuickSight lets you:
+
+* Connect to S3 data
+* Build charts and dashboards
+* Auto-refresh and share with your team
+  
+### Real-World Example
 
 > **Scenario**: A retail company wants a dashboard for regional managers showing:
 >
@@ -206,6 +221,103 @@ Amazon QuickSight has **two main pricing models**:
 3. Load into **SPICE**
 4. Build interactive dashboards with alerts in **QuickSight**
 5. Embed dashboard in company portal for managers
+
+---
+
+## Hands-On: How to Use Amazon QuickSight
+
+We’ll do a **practical walkthrough** using:
+
+* S3 (data source)
+* QuickSight
+* SPICE (in-memory engine)
+
+<details>
+   <summary>Step-by-Step: Set Up QuickSight with S3</summary>
+
+---
+
+## 🔧 Step-by-Step: Set Up QuickSight with S3 (Sample CSV Data)
+
+---
+
+### **Step 1: Prepare Your Data**
+
+Upload a sample CSV to your S3 bucket.
+Example CSV: `sales_data.csv`
+
+```csv
+Date,Region,Product,Sales
+2023-06-01,North,Shampoo,350
+2023-06-01,South,Toothpaste,450
+2023-06-02,North,Soap,220
+...
+```
+
+---
+
+### **Step 2: Enable Amazon QuickSight**
+
+1. Go to [Amazon QuickSight Console](https://quicksight.aws.amazon.com/)
+2. Click **Sign up** or **Enable QuickSight**
+3. Choose:
+
+   * **Enterprise edition** (for SPICE, ML insights, VPC support)
+   * Region (e.g., ap-south-1 – Mumbai)
+   * Author or Reader role
+4. Enable **S3** and **Athena/Glue** permissions during setup
+
+---
+
+### **Step 3: Create a Dataset**
+
+1. On QuickSight, click **Datasets**
+2. Click **New Dataset**
+3. Choose **S3** as source
+4. Enter **S3 manifest file** or **file URL**
+   Example:
+
+   ```
+   s3://your-bucket-name/sales_data.csv
+   ```
+5. QuickSight will **import into SPICE** (by default)
+
+---
+
+### **Step 4: Prepare Data (Optional)**
+
+* Rename columns if needed
+* Convert data types (e.g., Date column)
+* Add calculated fields like:
+
+  ```plaintext
+  = ifelse(Sales > 300, "High", "Low")
+  ```
+
+---
+
+### **Step 5: Build a Dashboard**
+
+1. Go to **Analyses**
+2. Click **New Analysis**
+3. Choose your dataset
+4. Create visuals:
+
+   * Bar chart: Sales by Region
+   * Line chart: Sales over time
+   * Pie chart: Sales by Product
+5. Add filters (e.g., date range)
+6. Add controls (dropdowns, sliders)
+
+---
+
+### **Step 6: Save & Share Dashboard**
+
+* Click **Share** → **Dashboard**
+* Share with IAM users/groups or **embed** in apps
+* You can schedule refresh of SPICE every day/hour
+
+</details>
 
 ---
 
@@ -229,3 +341,103 @@ Amazon QuickSight has **two main pricing models**:
 
 📎 [Amazon QuickSight Documentation](https://docs.aws.amazon.com/quicksight/)
 📎 [Product Page & Pricing](https://aws.amazon.com/quicksight/)
+
+---
+
+
+---
+
+
+
+---
+
+## 🔍 Real-World Analogy
+
+> Imagine you own a chain of stores. Every night, sales data from all stores is saved in S3.
+> You want to:
+>
+> * Track top-selling products
+> * See weekly revenue trends
+> * Compare sales by region
+
+QuickSight lets you:
+
+* Connect to S3 data
+* Build charts and dashboards
+* Auto-refresh and share with your team
+
+---
+
+## ⚡ Where Does SPICE Engine Come In?
+
+### 🔷 What is SPICE?
+
+**SPICE** = **Super-fast, Parallel, In-memory Calculation Engine**
+
+### 📌 Why is SPICE important?
+
+* It **loads your data into memory** and **compresses** it
+* Data can be refreshed on schedule (e.g., daily)
+* Dashboards load much **faster** than querying Redshift or S3 live
+* You avoid querying source DBs again and again
+* It’s **built into QuickSight**, no separate install needed
+
+> 🧠 You can think of SPICE as **RAM-optimized storage** that QuickSight uses for speed
+
+### 📊 Example:
+
+* You have a 100 MB CSV in S3.
+* SPICE loads it into memory, compresses to 30 MB.
+* Now, all users view dashboards fast – no repeated queries to S3.
+
+---
+
+
+
+## 💸 QuickSight Pricing (Simplified)
+
+| Role                           | Price                                |
+| ------------------------------ | ------------------------------------ |
+| **Author** (Create dashboards) | \$24/month (or \$18 annual)          |
+| **Reader** (View dashboards)   | \$0.30 per session (max \$5/month)   |
+| **SPICE Storage**              | 10 GB/user included; \$0.25/GB extra |
+
+---
+
+## ✅ When to Use QuickSight
+
+| Need                         | Use QuickSight?          |
+| ---------------------------- | ------------------------ |
+| Business Dashboards          | ✅ YES                    |
+| Ad-hoc SQL Analysis          | ✅ YES                    |
+| Embed Dashboards in SaaS App | ✅ YES                    |
+| Full Data Warehouse          | ❌ (Use Redshift instead) |
+| Just ETL                     | ❌ (Use Glue instead)     |
+
+---
+
+## 🎯 Summary
+
+| Feature             | Description                                        |
+| ------------------- | -------------------------------------------------- |
+| **SPICE Engine**    | In-memory, fast, scalable storage for dashboards   |
+| **Integrated With** | S3, RDS, Redshift, Athena, Snowflake               |
+| **Visualization**   | Bar, line, pie, tables, heatmaps, KPIs             |
+| **Security**        | IAM, row-level, encryption, VPC access             |
+| **Smart ML**        | Forecasting, anomaly detection, NLP (QuickSight Q) |
+| **Serverless**      | Yes (fully managed)                                |
+
+---
+
+## 🧪 Sample Use Case: Retail Sales Dashboard
+
+**Data Source**: Athena (querying S3)
+**Transformations**: via Glue or calculated fields
+**Dashboard**:
+
+* KPI cards for daily sales
+* Bar chart for region-wise performance
+* Forecast chart for next 7 days
+* Filters by product category, date, store
+
+---
