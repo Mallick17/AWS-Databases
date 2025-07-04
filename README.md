@@ -1,4 +1,3 @@
-# AWS-Databases
 # Amazon QuickSight (BI & Analytics Tool on AWS)
 ## What is Amazon QuickSight?
 **Amazon QuickSight** is a **serverless, cloud-native Business Intelligence (BI) service** that helps you:
