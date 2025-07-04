@@ -106,11 +106,23 @@ QuickSight can connect to the following services **directly**:
 
 **SPICE** = **Super-fast, Parallel, In-memory Calculation Engine**
 
-* Stores data in memory (columnar format)
-* Speeds up dashboards by avoiding repeated queries to the data source
+### Why is SPICE important?
+
+* It **loads your data into memory** and **compresses** it (In columnar format)
+* Data can be refreshed on schedule (e.g., daily)
+* Dashboards load much **faster** than querying Redshift or S3 live
+* You avoid querying source DBs again and again (Speeds up dashboards by avoiding repeated queries to the data source)
+* It’s **built into QuickSight**, no separate install needed
 * Automatically scales to millions of rows and thousands of users
 
-> 🔍 Think of SPICE as an in-memory data cache and processor optimized for dashboards.
+> You can think of SPICE as **RAM-optimized storage** that QuickSight uses for speed
+> Think of SPICE as an in-memory data cache and processor optimized for dashboards.
+
+### Example:
+
+* You have a 100 MB CSV in S3.
+* SPICE loads it into memory, compresses to 30 MB.
+* Now, all users view dashboards fast – no repeated queries to S3.
 
 ---
 
@@ -137,8 +149,7 @@ Amazon QuickSight has **two main pricing models**:
 | --------------- | ------------------------------------------------------- |
 | Monthly Pricing | **\$24/user/month** (or \$18/user/month if annual)      |
 | Includes        | Unlimited dashboards, SPICE capacity, scheduled reports |
-
----
+| Spice Storage   | 10 GB/user included; \$0.25/GB extra                    |
 
 ### 2. **Readers**
 
@@ -321,90 +332,7 @@ Date,Region,Product,Sales
 
 ---
 
-## Summary Table
-
-| Feature         | Amazon QuickSight                        |
-| --------------- | ---------------------------------------- |
-| Type            | BI & Data Visualization Tool             |
-| Serverless      | ✅ Yes                                    |
-| Scalable        | ✅ Millions of rows/users                 |
-| Storage Engine  | SPICE (in-memory)                        |
-| Integrated With | S3, Athena, Redshift, RDS, Aurora        |
-| Pricing         | Per user (Author) & per session (Reader) |
-| Security        | IAM, row-level, VPC, encryption          |
-| Embedding       | ✅ Web/mobile apps                        |
-| ML Support      | ✅ Forecasting, anomalies, NLP (Q)        |
-
----
-
-## 🔗 Official Resource
-
-📎 [Amazon QuickSight Documentation](https://docs.aws.amazon.com/quicksight/)
-📎 [Product Page & Pricing](https://aws.amazon.com/quicksight/)
-
----
-
-
----
-
-
-
----
-
-## 🔍 Real-World Analogy
-
-> Imagine you own a chain of stores. Every night, sales data from all stores is saved in S3.
-> You want to:
->
-> * Track top-selling products
-> * See weekly revenue trends
-> * Compare sales by region
-
-QuickSight lets you:
-
-* Connect to S3 data
-* Build charts and dashboards
-* Auto-refresh and share with your team
-
----
-
-## ⚡ Where Does SPICE Engine Come In?
-
-### 🔷 What is SPICE?
-
-**SPICE** = **Super-fast, Parallel, In-memory Calculation Engine**
-
-### 📌 Why is SPICE important?
-
-* It **loads your data into memory** and **compresses** it
-* Data can be refreshed on schedule (e.g., daily)
-* Dashboards load much **faster** than querying Redshift or S3 live
-* You avoid querying source DBs again and again
-* It’s **built into QuickSight**, no separate install needed
-
-> 🧠 You can think of SPICE as **RAM-optimized storage** that QuickSight uses for speed
-
-### 📊 Example:
-
-* You have a 100 MB CSV in S3.
-* SPICE loads it into memory, compresses to 30 MB.
-* Now, all users view dashboards fast – no repeated queries to S3.
-
----
-
-
-
-## 💸 QuickSight Pricing (Simplified)
-
-| Role                           | Price                                |
-| ------------------------------ | ------------------------------------ |
-| **Author** (Create dashboards) | \$24/month (or \$18 annual)          |
-| **Reader** (View dashboards)   | \$0.30 per session (max \$5/month)   |
-| **SPICE Storage**              | 10 GB/user included; \$0.25/GB extra |
-
----
-
-## ✅ When to Use QuickSight
+## When to Use QuickSight
 
 | Need                         | Use QuickSight?          |
 | ---------------------------- | ------------------------ |
@@ -414,12 +342,19 @@ QuickSight lets you:
 | Full Data Warehouse          | ❌ (Use Redshift instead) |
 | Just ETL                     | ❌ (Use Glue instead)     |
 
----
+## Summary Table
 
-## 🎯 Summary
-
-| Feature             | Description                                        |
-| ------------------- | -------------------------------------------------- |
+| Feature         | Amazon QuickSight                        |
+| --------------- | ---------------------------------------- |
+| Type            | BI & Data Visualization Tool             |
+| Serverless      | Yes                                    |
+| Scalable        | Millions of rows/users                 |
+| Storage Engine  | SPICE (in-memory)                        |
+| Integrated With | S3, Athena, Redshift, RDS, Aurora        |
+| Pricing         | Per user (Author) & per session (Reader) |
+| Security        | IAM, row-level, VPC, encryption          |
+| Embedding       | Web/mobile apps                        |
+| ML Support      | Forecasting, anomalies, NLP (Q)        |
 | **SPICE Engine**    | In-memory, fast, scalable storage for dashboards   |
 | **Integrated With** | S3, RDS, Redshift, Athena, Snowflake               |
 | **Visualization**   | Bar, line, pie, tables, heatmaps, KPIs             |
@@ -439,5 +374,12 @@ QuickSight lets you:
 * Bar chart for region-wise performance
 * Forecast chart for next 7 days
 * Filters by product category, date, store
+
+---
+
+## 🔗 Official Resource
+
+📎 [Amazon QuickSight Documentation](https://docs.aws.amazon.com/quicksight/)
+📎 [Product Page & Pricing](https://aws.amazon.com/quicksight/)
 
 ---
